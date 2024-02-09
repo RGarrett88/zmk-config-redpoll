@@ -15,22 +15,9 @@
     combos {
         compatible = "zmk,combos";
 
-        OE {
-            bindings = <&kp DE_O_UMLAUT>;
-            key-positions = <10 11>;
-            timeout-ms = <20>; // default=50
-        };
-
-        PROZENT {
-            bindings = <&kp DE_PRCNT>;
-            key-positions = <26 27>;
-            layers = <1>;
-            timeout-ms = <20>;
-        };
-
         GREATERTHAN {
             bindings = <&kp DE_GT>;
-            key-positions = <38 39>;
+            key-positions = <38 39>;//figure out if I need any of these
             layers = <1>;
             timeout-ms = <20>;
         };
@@ -39,7 +26,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        /* Helper for combos
+        /* Helper for combos todo fix
                                 23              0   
                 24  25  26  27  28  29      1   2   3   4   5   6 
                 30  31  32  33  34  35      7   8   9   10  11  12
@@ -50,85 +37,34 @@
         base {
             bindings = <
                                                                               &kp KP_SLASH
-                                                                     &kp J    &kp L    &kp U      &kp DE_Z   &kp DE_U_UMLAUT &kp DE_A_UMLAUT
-                                                                     &kp M    &kp N    &kp E      &kp I      &kp O           &kp BSPC
-                                                                     &kp K    &kp H    &kp COMMA  &kp DOT    &kp DE_MINUS    &kp DE_SZ
-                                                                     &kp RET  &mo 2    &kp SPACE  &trans   
-                                                   &kp ESCAPE 
-&kp TAB    &kp Q       &kp W         &kp F         &kp P      &kp B
-&kp LCTRL  &kp A       &kp R         &kp S         &kp T      &kp G
-&mo 3      &kp DE_Y    &kp X         &kp C         &kp D      &kp V
-                       &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHFT  &mo 1
+                                                                     &kp Y    &kp U    &kp I      &kp O      &kp P    &kp MINUS  &kp EQUAL  &kp BSPC
+                                                                     &kp H    &kp J    &kp K      &kp L      &kp SEMI &kp SQT    &kp RET
+                                                                              &kp N    &kp M      &kp COMMA  &kp DOT  &kp SLASH  &kp LSHIFT &kp UP
+                                                                                       &kp SPACE  &kp NUBS   &kp F    &kp LEFT   &kp RIGHT  &kp DOWN
+&kp TAB    &kp Q       &kp W         &kp E         &kp R      &kp T
+&kp ESC    &kp A       &kp S         &kp D         &kp F      &kp G
+&kp LSHIFT &kp Z       &kp X         &kp C         &kp V      &kp B
+&kp LCTRL  &kp F       &kp LALT      &kp LGUI
             >;
 
             label = "Base";
         };
 
-        sym {
+        two {
             bindings = <
-                                                                                                     &trans
-                                                                                       &kp DE_TILDE  &kp N7  &kp N8  &kp N9  &kp DE_CARET  &kp DE_APOS
-                                                                                       &kp DE_ASTRK  &kp N4  &kp N5  &kp N6  &kp DE_PLUS   &trans
-                                                                                       &kp DE_BSLH   &kp N1  &kp N2  &kp N3  &kp DOT    &kp DE_GRAVE
-                                                                                       &trans        &kp N0  &trans  &trans
-
-                                                        &kp DE_PIPE
-&kp DE_AMPS  &kp DE_AT      &kp DE_DQT    &kp DE_DLLR   &kp DE_LBRC  &kp DE_RBRC
-&kp DE_POUND &kp DE_EXCL    &kp DE_EQUAL  &kp DE_COLON  &kp DE_LPAR  &kp DE_RPAR
-&kp DE_EURO  &kp DE_QMARK   &kp DE_LT     &kp DE_SEMI   &kp DE_LBKT  &kp DE_RBKT
-                            &trans        &trans        &trans       &trans
+                                                                              &kp KP_SLASH
+                                                                     &kp Y    &kp U    &kp I      &kp O      &kp P    &kp MINUS  &kp EQUAL  &kp BSPC
+                                                                     &kp H    &kp J    &kp K      &kp L      &kp SEMI &kp SQT    &kp RET
+                                                                              &kp N    &kp M      &kp COMMA  &kp DOT  &kp SLASH  &kp LSHIFT &kp UP
+                                                                                       &kp SPACE  &kp NUBS   &kp F    &kp LEFT   &kp RIGHT  &kp DOWN
+&kp TAB    &kp Q       &kp W         &kp E         &kp R      &kp T
+&kp ESC    &kp A       &kp S         &kp D         &kp F      &kp G
+&kp LSHIFT &kp Z       &kp X         &kp C         &kp V      &kp B
+&kp LCTRL  &kp F       &kp LALT      &kp LGUI
             >;
 
-            label = "Sym";
+            label = "Two";
         };
 
-        nav {
-            bindings = <
-                                                                &trans
-                                                     &kp PG_UP  &kp HOME  &kp UP    &kp END    &trans  &kp K_VOLUME_UP
-                                                     &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &kp K_VOLUME_DOWN
-                                                     &trans     &kp INS   &trans    &kp DEL    &trans  &trans
-                                                     &trans     &trans    &trans    &trans     
-                                    &bt BT_CLR 
-&trans  &trans      &kp F7  &kp F8  &kp F9  &kp F10
-&trans  &bt BT_NXT  &kp F4  &kp F5  &kp F6  &kp F11
-&trans  &bt BT_PRV  &kp F1  &kp F2  &kp F3  &kp F12
-                    &trans  &trans  &trans  &trans
-            >;
-
-            label = "Nav";
-        };
-
-        right {
-            bindings = <                                            &trans
-                                                            &trans  &trans  &trans  &trans  &trans  &trans
-                                                            &trans  &trans  &trans  &trans  &trans  &trans
-                                                            &trans  &trans  &trans  &trans  &trans  &trans
-                                                            &trans  &trans  &trans  &trans
-                                        &trans
-&kp APOS  &kp LBKT   &kp Z    &kp U      &kp L      &kp J
-&kp DEL   &kp O      &kp I    &kp E      &kp N      &kp M
-&trans    &kp MINUS  &kp DOT  &kp COMMA  &kp H      &kp K
-                     &trans   &kp SPACE  &kp LSHFT  &trans
-            >;
-
-            label = "Right";
-        };
-
-        noted {
-            bindings = <                                             &kp KP_SLASH
-                                                            &kp P    &kp B  &kp M      &kp L    &kp F  &kp J
-                                                            &kp D    &kp T  &kp N      &kp R    &kp H  &kp BSPC
-                                                            &kp W    &kp G  &kp COMMA  &kp DOT  &kp K  &kp DE_SZ
-                                                            &kp RET  &mo 2  &kp SPACE  &trans   
-                                                 &kp ESCAPE
-&kp TAB    &kp Z  &kp Y         &kp U            &kp A            &kp Q
-&kp LCTRL  &kp C  &kp S         &kp I            &kp E            &kp O
-&mo 3      &kp V  &kp X         &kp DE_U_UMLAUT  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT 
-                  &kp LEFT_GUI  &kp LEFT_ALT     &kp LSHFT        &mo 1
-            >;
-
-            label = "Noted";
-        };
     };
 };
