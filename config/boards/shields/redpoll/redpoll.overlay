@@ -12,7 +12,7 @@
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
-                diode-direction = "col2row";
+        diode-direction = "direct";//chatgpt says I need this option since mine doesn't have diodes.
         row-gpios
             //right
             = <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  
